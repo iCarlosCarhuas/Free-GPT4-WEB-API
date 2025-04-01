@@ -19,17 +19,12 @@ import getpass
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
-from flask_cors import CORS
-CORS(app, origins=["*"])  # Replace with your frontend URL
+from flask import Flask
+app = Flask(__name__)  # Initialize Flask app FIRST
 
-# FastAPI example [[8]]
-from fastapi.middleware.cors import CORSMiddleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (replace with specific domains in production)
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Configure CORS
+from flask_cors import CORS
+CORS(app, origins=["*"])  # Now 'app' exists
 
 UPLOAD_FOLDER = 'data/'
 

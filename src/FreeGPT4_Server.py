@@ -7,25 +7,18 @@ import string
 import sqlite3
 from uuid import uuid4
 import threading
-
-# GPT Library
 import g4f
 from g4f.api import run_api
-
-# Server
-from flask import Flask, redirect, render_template
-from flask import request
-import getpass
+from flask import Flask, redirect, render_template, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+from flask_cors import CORS
 
-from flask import Flask
-app = Flask(__name__)  # Initialize Flask app FIRST
+# Initialize Flask app FIRST
+app = Flask(__name__)
 
 # Configure CORS
-from flask_cors import CORS
-CORS(app, origins=["*"])  # Now 'app' exists
-
+CORS(app, origins=["*"])  # Allow all origins (replace with specific domains in production)
 UPLOAD_FOLDER = 'data/'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

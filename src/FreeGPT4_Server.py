@@ -19,7 +19,17 @@ import getpass
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
+from flask_cors import CORS
+CORS(app, origins=["http://your-frontend-domain.com"])  # Replace with your frontend URL
 
+# FastAPI example [[8]]
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (replace with specific domains in production)
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app = Flask(__name__)
 

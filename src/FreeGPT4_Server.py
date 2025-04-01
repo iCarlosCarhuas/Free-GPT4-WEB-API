@@ -20,7 +20,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
 from flask_cors import CORS
-CORS(app, origins=["http://your-frontend-domain.com"])  # Replace with your frontend URL
+CORS(app, origins=["*"])  # Replace with your frontend URL
 
 # FastAPI example [[8]]
 from fastapi.middleware.cors import CORSMiddleware

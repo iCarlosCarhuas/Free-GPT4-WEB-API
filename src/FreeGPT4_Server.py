@@ -31,8 +31,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app = Flask(__name__)
-
 UPLOAD_FOLDER = 'data/'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

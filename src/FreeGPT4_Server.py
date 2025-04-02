@@ -19,7 +19,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 # Configure CORS
-CORS(app, origins=["*"])  # Allow all origins (replace with specific domains in production)
+CORS(app, origins=["https://ktfapp.vercel.app"])  # Allow all origins (replace with specific domains in production)
 UPLOAD_FOLDER = 'data/'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

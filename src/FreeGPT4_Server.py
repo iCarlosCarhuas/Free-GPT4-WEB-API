@@ -387,7 +387,14 @@ def apply_settings(file):
     args.enable_fast_api = data["fast_api"]
     return
 
-
+@app.before_request
+def check_origin():
+    allowed_origin = "https://ktfapp.vercel.app"
+    origin = request.headers.get("Origin")
+    print(f"Received Origin: {origin}")  # Debugging line
+    if origin != allowed_origin:
+        return {"error": "Forbidden: Invalid origin"}, 403
+        
 @app.route("/", methods=["GET", "POST"])
 async def index() -> str:
     """
